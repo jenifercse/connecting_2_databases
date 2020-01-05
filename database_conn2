@@ -1,0 +1,44 @@
+<?php
+class Database{
+   // specify your own database credentials
+   
+    private $host1       = "192.168.1.4";
+    private $db_name1    = "eff_enquiry";
+    private $username1   = "dei1";
+    private $password1   = "dei";
+   
+   private $host = "localhost";
+   private $db_name = "eff_enquiry1";
+   private $username = "root";
+   private $password = "Opendb@$#@!";
+public $conn;
+public $conn1;
+
+   // get the database connection
+   public function getConnection(){
+        $this->conn    = null;
+        try{
+           $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+           $this->conn->exec("set names utf8");
+       }catch(PDOException $exception){
+           echo "Connection error: " . $exception->getMessage();
+       }
+        return $this->conn;
+   }
+
+public function getConnection1(){
+        $this->conn1    = null;
+        try{
+           $this->conn = new PDO("mysql:host=" . $this->host1 . ";dbname=" . $this->db_name1, $this->username1, $this->password1);
+           $this->conn->exec("set names utf8");
+       }catch(PDOException $exception){
+           echo "Connection error: " . $exception->getMessage();
+       }
+        return $this->conn1;
+   }
+}
+?>
+if u need first db
+call get conn
+need second one 
+call get conn1
